@@ -36,12 +36,37 @@ public class GameSceneController : MonoBehaviour
     #endregion
 
     #region Startup
-
+	// Awake is called when the script instance is being loaded.
+	protected void Awake()
+	{
+		endGameObservers = new List<IEndGameObserver>();
+	}
     void Start()
     {
         StartLevel(currentLevelIndex);
     }
 
+    #endregion
+    
+    #region End Game Notifier implementation
+	private List<IEndGameObserver> endGameObservers;
+	
+	public void AddObserver(IEndGameObserver observer)
+	{
+		endGameObservers.Add(observer);
+	}
+	public void RemoveObserver(IEndGameObserver observer)
+	{
+		endGameObservers.Remove(observer);
+	}
+	private void NotifyObservers()
+	{
+		foreach (IEndGameObserver item in endGameObservers)
+		{
+			item.Notify();
+		}
+	}
+	
     #endregion
 
     #region Level Management
@@ -85,12 +110,19 @@ public class GameSceneController : MonoBehaviour
 	    ship.HitByEnemy +=Ship_HitByEnemy;
         yield return null;
     }
-	
+	[ContextMenu("Kill")]
 	private void Ship_HitByEnemy()
 	{
 		lives--;
-		if(LifeLost != null) LifeLost(lives);
-		if(lives > 0) StartCoroutine(SpawnShip(true));
+		if(lives > 0) 
+		{
+			if(LifeLost != null) LifeLost(lives);
+			StartCoroutine(SpawnShip(true));
+		} else
+		{
+			StopAllCoroutines();
+			NotifyObservers();
+		}
 	}
     
 
@@ -110,6 +142,7 @@ public class GameSceneController : MonoBehaviour
             enemy.shotdelayTime = currentLevel.enemyShotDelay;
 	        enemy.angerdelayTime = currentLevel.enemyAngerDelay;
 	        enemy.EnemyDestroyed +=Enemy_Destroyed;
+	        AddObserver(enemy);
 	        
  
             yield return wait;
@@ -128,7 +161,8 @@ public class GameSceneController : MonoBehaviour
         {
             int index = UnityEngine.Random.Range(0, powerUpPrefabs.Length);
             Vector2 spawnPosition = ScreenBounds.RandomTopPosition();
-            Instantiate(powerUpPrefabs[index], spawnPosition, Quaternion.identity);
+	        PowerupController powerup = Instantiate(powerUpPrefabs[index], spawnPosition, Quaternion.identity);
+	        AddObserver(powerup);
             yield return new WaitForSeconds(UnityEngine.Random.Range(currentLevel.powerUpMinimumWait,currentLevel.powerUpMaximumWait));
         }
     }

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool projectileEnabled = true;
 	private WaitForSeconds shieldTimeOut;
 	private GameSceneController gameSceneController;
+	private ProjectileController lastprojectile;
 	public event Action HitByEnemy;
     #endregion
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
 	{
+		EventBroker.ProjectileOutOfBounds +=EnableProjectile;
 		gameSceneController = FindObjectOfType<GameSceneController>();
 		gameSceneController.ScoreUpdatedOnKill += EnableProjectile;
         shieldTimeOut = new WaitForSeconds(shieldDuration);
@@ -96,8 +98,8 @@ public class PlayerController : MonoBehaviour
         projectile.isPlayers = true;
         projectile.projectileSpeed = 4;
 	    projectile.projectileDirection = Vector2.up;
-        
-	    projectile.ProjectileOutOfBounds += EnableProjectile;
+	    
+	    DisableProjectile();
     }
 
     #endregion
@@ -116,8 +118,7 @@ public class PlayerController : MonoBehaviour
     private void TakeHit()
     {
         GameObject xp = Instantiate(expolsion, transform.position, Quaternion.identity);
-        xp.transform.localScale = new Vector2(2, 2);
-
+	    xp.transform.localScale = new Vector2(2, 2);
         Destroy(gameObject);
     }
 
@@ -138,5 +139,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    #endregion
+    
+    #region Destroy
+	// This function is called when the MonoBehaviour will be destroyed.
+	protected void OnDestroy()
+	{
+		EventBroker.ProjectileOutOfBounds -= EnableProjectile;
+		gameSceneController.ScoreUpdatedOnKill -= EnableProjectile;
+	}
     #endregion
 }

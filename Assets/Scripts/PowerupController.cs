@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PowerupController :MonoBehaviour
+public class PowerupController :MonoBehaviour,IEndGameObserver
 {
     #region Field Declarations
 
@@ -45,6 +45,17 @@ public class PowerupController :MonoBehaviour
        Destroy(gameObject);
     }
 
+    #endregion
+    #region Events
+	public void Notify()
+	{
+		Destroy(gameObject);
+	}
+	protected void OnDestroy()
+	{
+		GameSceneController gameSceneController = FindObjectOfType<GameSceneController>();
+		gameSceneController.RemoveObserver(this);
+	}
     #endregion
 }
 

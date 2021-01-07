@@ -3,7 +3,7 @@ using UnityEngine;
 
 public delegate void OnEnemyDestroyedHandler(int pointValue);
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IEndGameObserver
 {
     #region Field Declarations
 
@@ -42,6 +42,19 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(OpenFire());
     }
 
+    #endregion
+    
+    #region Events
+	public void Notify()
+	{
+		Destroy(gameObject);
+	}
+	// This function is called when the MonoBehaviour will be destroyed.
+	protected void OnDestroy()
+	{
+		GameSceneController gameSceneController = FindObjectOfType<GameSceneController>();
+		gameSceneController.RemoveObserver(this);
+	}
     #endregion
 
     #region Movement
