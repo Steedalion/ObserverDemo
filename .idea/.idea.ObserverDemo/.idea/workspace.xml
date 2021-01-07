@@ -1,74 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b897ebf8-c015-4b5c-a024-1e82ed9d638c" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="b897ebf8-c015-4b5c-a024-1e82ed9d638c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ObserverDemo/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ObserverDemo/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ObserverDemo/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ObserverDemo/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ObserverDemo/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ObserverDemo/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ObserverDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ObserverDemo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSceneController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSceneController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerupController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerupController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ProjectileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ProjectileController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HUDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HUDController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameSceneController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-              <folding>
-                <marker date="1562774657000" expanded="false" signature="6:78" ph="..." />
-                <marker date="1562774657000" expanded="true" signature="128:3148" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="135:871" ph="Field Declarations" />
-                <marker date="1562774657000" expanded="true" signature="877:977" ph="Startup" />
-                <marker date="1562774657000" expanded="true" signature="910:961" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="983:1560" ph="Level Management" />
-                <marker date="1562774657000" expanded="true" signature="1052:1268" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="1297:1544" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="1446:1538" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="1566:3146" ph="Spawning" />
-                <marker date="1562774657000" expanded="true" signature="1631:1915" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="1955:2667" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="2132:2661" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="2711:3130" ph="{...}" />
-                <marker date="1562774657000" expanded="true" signature="2738:3124" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-276">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-              <folding>
-                <marker date="1562774590000" expanded="false" signature="6:44" ph="..." />
-                <marker date="1562774590000" expanded="true" signature="91:3140" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="98:581" ph="Field Declarations" />
-                <marker date="1562774590000" expanded="true" signature="587:740" ph="Startup" />
-                <marker date="1562774590000" expanded="true" signature="628:724" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="746:1553" ph="Movement &amp; Control" />
-                <marker date="1562774590000" expanded="true" signature="830:1026" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="903:1020" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="948:1010" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="1057:1537" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="1186:1531" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="1559:2430" ph="Projectile Management" />
-                <marker date="1562774590000" expanded="true" signature="1624:1724" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="1761:1862" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="1897:2414" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="2436:2843" ph="Damage" />
-                <marker date="1562774590000" expanded="true" signature="2510:2615" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="2643:2827" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="2849:3138" ph="Shield Management" />
-                <marker date="1562774590000" expanded="true" signature="2906:2991" ph="{...}" />
-                <marker date="1562774590000" expanded="true" signature="3032:3122" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -79,6 +30,7 @@
     <option name="width" value="2560" />
     <option name="height" value="1440" />
   </component>
+  <component name="ProjectId" id="1mjEAlebBWPMNztUce6OedL4dGn" />
   <component name="ProjectView">
     <navigator currentView="UnityExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -109,6 +61,10 @@
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
@@ -116,34 +72,27 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="userSelectedPid" value="false" />
+      <option name="selectedOptions">
+        <list />
+      </option>
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="userSelectedPid" value="false" />
+      <option name="selectedOptions">
+        <list />
+      </option>
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -202,6 +151,9 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>

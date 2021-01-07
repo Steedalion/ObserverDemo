@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using System;
 public class PlayerController : MonoBehaviour
 {
     #region Field Declarations
@@ -14,14 +14,17 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float speed;
 
     private bool projectileEnabled = true;
-    private WaitForSeconds shieldTimeOut;
-    
+	private WaitForSeconds shieldTimeOut;
+	private GameSceneController gameSceneController;
+	public event Action HitByEnemy;
     #endregion
 
     #region Startup
 
     private void Start()
-    {
+	{
+		gameSceneController = FindObjectOfType<GameSceneController>();
+		gameSceneController.ScoreUpdatedOnKill += EnableProjectile;
         shieldTimeOut = new WaitForSeconds(shieldDuration);
         EnableShield();
     }
@@ -64,14 +67,18 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Projectile Management
+	public void EnableProjectile(int points)
+	{
+		EnableProjectile();
+	}
 
-    public void EnableProjectile()
+	public void EnableProjectile()
     {
         projectileEnabled = true;
         availableBullet.SetActive(projectileEnabled);
     }
 
-    public void DisableProjectile()
+	private void DisableProjectile()
     {
         projectileEnabled = false;
         availableBullet.SetActive(projectileEnabled);
@@ -88,7 +95,9 @@ public class PlayerController : MonoBehaviour
         projectile.gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
         projectile.isPlayers = true;
         projectile.projectileSpeed = 4;
-        projectile.projectileDirection = Vector2.up;
+	    projectile.projectileDirection = Vector2.up;
+        
+	    projectile.ProjectileOutOfBounds += EnableProjectile;
     }
 
     #endregion
@@ -97,8 +106,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<ProjectileController>())
-            TakeHit();
+	    if(collision.gameObject.GetComponent<ProjectileController>())
+	    {
+	    	HitByEnemy();
+		    TakeHit();
+	    }
     }
 
     private void TakeHit()

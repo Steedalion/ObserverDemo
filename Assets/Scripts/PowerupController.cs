@@ -7,7 +7,7 @@ public class PowerupController :MonoBehaviour
     public GameObject explosion;
 
     [SerializeField]
-    private PowerType powerType;
+	private PowerType powerType;
 
     #endregion
 
@@ -53,3 +53,4 @@ public enum PowerType
     Shield,
     X2
 };
+

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameSceneController : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class GameSceneController : MonoBehaviour
     [Space]
     [SerializeField] private EnemyController enemyPrefab;
     [SerializeField] private PlayerController playerShip;
-    [SerializeField] private PowerupController[] powerUpPrefabs;
+	[SerializeField] private PowerupController[] powerUpPrefabs;
+    
+	public event OnEnemyDestroyedHandler ScoreUpdatedOnKill;
+	public event Action<int> LifeLost; 
 	
 	[Header("Level Definitions")]
     [Space]
@@ -77,10 +81,18 @@ public class GameSceneController : MonoBehaviour
 
         PlayerController ship = Instantiate(playerShip, new Vector2(0, -4.67f), Quaternion.identity);
         ship.speed = playerSpeed;
-        ship.shieldDuration = shieldDuration;
-
+	    ship.shieldDuration = shieldDuration;
+	    ship.HitByEnemy +=Ship_HitByEnemy;
         yield return null;
     }
+	
+	private void Ship_HitByEnemy()
+	{
+		lives--;
+		if(LifeLost != null) LifeLost(lives);
+		if(lives > 0) StartCoroutine(SpawnShip(true));
+	}
+    
 
     private IEnumerator SpawnEnemies()
     {
@@ -96,11 +108,19 @@ public class GameSceneController : MonoBehaviour
             enemy.shotSpeed = currentLevel.enemyShotSpeed;
             enemy.speed = currentLevel.enemySpeed;
             enemy.shotdelayTime = currentLevel.enemyShotDelay;
-            enemy.angerdelayTime = currentLevel.enemyAngerDelay;
+	        enemy.angerdelayTime = currentLevel.enemyAngerDelay;
+	        enemy.EnemyDestroyed +=Enemy_Destroyed;
+	        
  
             yield return wait;
         }
     }
+    
+	private void Enemy_Destroyed(int points)
+	{
+		totalPoints += points;
+		if(ScoreUpdatedOnKill != null) ScoreUpdatedOnKill(totalPoints);
+	}
     
     private IEnumerator SpawnPowerUp()
     {

@@ -14,8 +14,8 @@ public class HUDController : MonoBehaviour
     [Header("Ship Counter")]
     [SerializeField]
     [Space]
-    private Image[] shipImages;
-
+	private Image[] shipImages;
+	private GameSceneController gameController;
     #endregion
 
     #region Startup
@@ -24,6 +24,14 @@ public class HUDController : MonoBehaviour
     {
         statusText.gameObject.SetActive(false);
     }
+    
+	// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
+	protected void Start()
+	{
+		gameController = FindObjectOfType<GameSceneController>();
+		gameController.ScoreUpdatedOnKill += UpdateScore;
+		gameController.LifeLost += HideShip;
+	}
 
     #endregion
 
