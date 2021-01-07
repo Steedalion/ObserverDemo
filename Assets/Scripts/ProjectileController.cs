@@ -24,7 +24,8 @@ public class ProjectileController : MonoBehaviour
 
         if (ScreenBounds.OutOfBounds(transform.position))
         {
-        	EventBroker.CallProjectileOutOfBounds();
+        	if(isPlayers){EventBroker.CallProjectileOutOfBounds();}
+        	
             Destroy(gameObject);
         }
     }

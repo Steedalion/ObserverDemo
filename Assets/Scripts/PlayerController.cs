@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	public void EnableProjectile()
-    {
+	{
         projectileEnabled = true;
         availableBullet.SetActive(projectileEnabled);
     }
