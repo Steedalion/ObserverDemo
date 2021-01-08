@@ -107,8 +107,9 @@ public class GameSceneController : MonoBehaviour
         PlayerController ship = Instantiate(playerShip, new Vector2(0, -4.67f), Quaternion.identity);
         ship.speed = playerSpeed;
 	    ship.shieldDuration = shieldDuration;
-	    ship.HitByEnemy +=Ship_HitByEnemy;
-        yield return null;
+	    EventBroker.PlayerHitByEnemy +=Ship_HitByEnemy;
+	    //AddObserver(ship);
+	    yield return null;
     }
 	[ContextMenu("Kill")]
 	private void Ship_HitByEnemy()
@@ -122,6 +123,7 @@ public class GameSceneController : MonoBehaviour
 		{
 			StopAllCoroutines();
 			NotifyObservers();
+			//EventBroker.GameEnded();
 		}
 	}
     

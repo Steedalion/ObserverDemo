@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 	private WaitForSeconds shieldTimeOut;
 	private GameSceneController gameSceneController;
 	private ProjectileController lastprojectile;
-	public event Action HitByEnemy;
+	//public event Action HitByEnemy;
     #endregion
 
     #region Startup
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
     {
 	    if(collision.gameObject.GetComponent<ProjectileController>())
 	    {
-	    	HitByEnemy();
+	    	EventBroker.PlayerHitByEnemy();
 		    TakeHit();
 	    }
     }
