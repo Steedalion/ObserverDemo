@@ -29,7 +29,7 @@ public class HUDController : MonoBehaviour, IEndGameObserver
 	protected void Start()
 	{
 		gameController = FindObjectOfType<GameSceneController>();
-		gameController.ScoreUpdatedOnKill += UpdateScore;
+		EventBroker.ScoreUpdateOnEnemyKill += UpdateScore;
 		gameController.LifeLost += HideShip;
 		gameController.AddObserver(this);
 	}

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public delegate void OnEnemyDestroyedHandler(int pointValue);
+//public delegate void OnEnemyDestroyedHandler(int pointValue);
 
 public class EnemyController : MonoBehaviour, IEndGameObserver
 {
@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
     private SpriteRenderer spriteRenderer;
 
     #endregion
-	public event OnEnemyDestroyedHandler EnemyDestroyed;
+	//public event OnEnemyDestroyedHandler EnemyDestroyed;
     #region Startup
 
     private void Start()
@@ -86,10 +86,7 @@ public class EnemyController : MonoBehaviour, IEndGameObserver
         
         GameObject xPlosion = Instantiate(explosion, transform.position, Quaternion.identity);
 	    xPlosion.transform.localScale = new Vector2(2, 2);
-	    if (EnemyDestroyed != null)
-	    {
-	    	EnemyDestroyed(pointValue);
-	    }
+	    EventBroker.EnemyDestroyed(pointValue);
         Destroy(gameObject);
     }
 

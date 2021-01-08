@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 	{
 		EventBroker.ProjectileOutOfBounds +=EnableProjectile;
 		gameSceneController = FindObjectOfType<GameSceneController>();
-		gameSceneController.ScoreUpdatedOnKill += EnableProjectile;
+		EventBroker.ScoreUpdateOnEnemyKill += EnableProjectile;
         shieldTimeOut = new WaitForSeconds(shieldDuration);
         EnableShield();
     }
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
 	protected void OnDestroy()
 	{
 		EventBroker.ProjectileOutOfBounds -= EnableProjectile;
-		gameSceneController.ScoreUpdatedOnKill -= EnableProjectile;
+		EventBroker.ScoreUpdateOnEnemyKill -= EnableProjectile;
 	}
     #endregion
 }

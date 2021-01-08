@@ -51,7 +51,7 @@ public class PowerupController :MonoBehaviour,IEndGameObserver
 	{
 		Destroy(gameObject);
 	}
-	protected void OnDestroy()
+	protected void OnDisable()
 	{
 		GameSceneController gameSceneController = FindObjectOfType<GameSceneController>();
 		//EventBroker.GameEnded -= Notifyf

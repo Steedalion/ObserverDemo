@@ -13,7 +13,7 @@ public class GameSceneController : MonoBehaviour
     [SerializeField] private PlayerController playerShip;
 	[SerializeField] private PowerupController[] powerUpPrefabs;
     
-	public event OnEnemyDestroyedHandler ScoreUpdatedOnKill;
+	//public event OnEnemyDestroyedHandler ScoreUpdatedOnKill;
 	public event Action<int> LifeLost; 
 	
 	[Header("Level Definitions")]
@@ -143,7 +143,7 @@ public class GameSceneController : MonoBehaviour
             enemy.speed = currentLevel.enemySpeed;
             enemy.shotdelayTime = currentLevel.enemyShotDelay;
 	        enemy.angerdelayTime = currentLevel.enemyAngerDelay;
-	        enemy.EnemyDestroyed +=Enemy_Destroyed;
+	        EventBroker.EnemyDestroyed +=Enemy_Destroyed;
 	        AddObserver(enemy);
 	        
  
@@ -154,7 +154,7 @@ public class GameSceneController : MonoBehaviour
 	private void Enemy_Destroyed(int points)
 	{
 		totalPoints += points;
-		if(ScoreUpdatedOnKill != null) ScoreUpdatedOnKill(totalPoints);
+		EventBroker.ScoreUpdateOnEnemyKill(totalPoints);
 	}
     
     private IEnumerator SpawnPowerUp()
